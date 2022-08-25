@@ -2,7 +2,7 @@ import User from "../Models/UserModel.js";
 import Cloudinary from "../Config/cloudConfig.js";
 
 async function createUser(req, res) {
-  let image = await Cloudinary.uploader.upload(req.file.path); // to upload image or user profile image
+  let image = await Cloudinary.uploader.upload(req.file.path); // to upload  user  image
   let fileUrl = image.secure_url;
   try {
     let result = await User.create({ ...req.body, image: fileUrl });
